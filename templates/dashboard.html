@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - FinArchitect{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center mb-8">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-rocket text-3xl text-blue-600 mr-3"></i>
+        <h1 class="text-3xl font-bold text-gray-800">FinArchitect Deployment Dashboard</h1>
+    </div>
+    <p class="text-gray-600 mb-4">Webhook service for automated deployments</p>
+</div>
+
+<div class="bg-white rounded-lg shadow p-6 mt-6">
+    <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2 flex items-center">
+        <i class="fab fa-github text-blue-500 mr-2"></i> Repository Information
+    </h2>
+    <div class="space-y-3">
+        <div>
+            <p class="text-sm text-gray-500">Repository:</p>
+            <p class="font-mono bg-gray-100 p-2 rounded">{{ repo_info.name|default('Not configured') }}</p>
+        </div>
+        <div>
+            <p class="text-sm text-gray-500">Last Checked:</p>
+            <p class="font-mono bg-gray-100 p-2 rounded">{{ repo_info.last_checked|default('Never') }}</p>
+        </div>
+        <div>
+            <p class="text-sm text-gray-500">Update Status:</p>
+            <p class="font-mono p-2 rounded 
+                {% if repo_info.updates_available %}bg-yellow-100 text-yellow-800{% else %}bg-gray-100{% endif %}">
+                {% if repo_info.updates_available %}
+                    <i class="fas fa-exclamation-circle mr-1"></i> Updates available!
+                {% else %}
+                    {% if repo_info.updates_available == False %}
+                        <i class="fas fa-check-circle mr-1"></i> Up to date
+                    {% else %}
+                        Status unknown
+                    {% endif %}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2 flex items-center">
+            <i class="fas fa-info-circle text-blue-500 mr-2"></i> Service Status
+        </h2>
+        <div class="space-y-4">
+            <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                <p class="text-gray-700">Webhook service is running</p>
+            </div>
+            <div>
+                <p class="text-sm text-gray-500 mb-1">Last push received:</p>
+                <p class="font-mono bg-gray-100 p-2 rounded">{{ last_push or "No push received yet" }}</p>
+            </div>
+        </div>
+        <form method="post" action="/test" class="mt-6">
+            <button type="submit" class="deploy-btn bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow flex items-center">
+                <i class="fas fa-play mr-2"></i> Trigger Manual Deployment
+            </button>
+        </form>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2 flex items-center">
+            <i class="fas fa-history text-blue-500 mr-2"></i> Recent Activity
+        </h2>
+        <div class="space-y-2 max-h-60 overflow-y-auto">
+            {% for log in recent_logs %}
+            <div class="log-entry p-2 rounded">
+                <p class="text-sm font-mono text-gray-700">{{ log }}</p>
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-sm">No recent activity</p>
+            {% endfor %}
+        </div>
+        <a href="/logs" class="mt-4 inline-block text-sm text-blue-600 hover:text-blue-800">
+            <i class="fas fa-external-link-alt mr-1"></i> View full logs
+        </a>
+    </div>
+</div>
+
+<div class="bg-white rounded-lg shadow p-6">
+    <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2 flex items-center">
+        <i class="fas fa-terminal text-blue-500 mr-2"></i> Last Deployment Output
+    </h2>
+    <div class="bg-gray-900 rounded p-4 text-gray-300 font-mono text-sm overflow-x-auto">
+        <pre>{{ last_deployment_output or "No deployment output available" }}</pre>
+    </div>
+</div>
+{% endblock %}

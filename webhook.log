@@ -1,0 +1,147 @@
+[2025-06-26 19:13:16] ✅ Manual deployment triggered from dashboard
+[2025-06-26 19:40:52] Failed to read deployment log: [Errno 2] No such file or directory: '/home/prod/devops/deploy.log'
+[2025-06-26 19:50:38] ✅ Manual test deploy triggered from web UI
+[2025-06-27 04:12:28] ✅ Manual test deploy triggered from web UI
+[2025-06-27 04:31:28] ✅ Manual test deploy triggered from web UI
+[2025-06-27 04:31:28] GitHub PAT not configured - skipping update check
+[2025-06-27 04:32:27] ✅ Manual test deploy triggered from web UI
+[2025-06-27 04:32:27] GitHub PAT not configured - skipping update check
+[2025-06-27 04:46:05] ⚠️ Invalid signature received
+[2025-06-27 09:07:47] GitHub PAT not configured - skipping update check
+[2025-06-27 09:11:26] GitHub PAT not configured - skipping update check
+[2025-06-27 09:43:09] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250627-094310 at Fri Jun 27 09:43:10 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+🔧 Checking socket permissions...
+🔄 Pulling latest code...
+error: cannot open '.git/FETCH_HEAD': Permission denied
+📨 Telegram notification sent (failure)
+❌ Deployment failed with exit code 1
+[2025-06-27 15:43:44] ⚠️ Invalid signature received
+[2025-06-27 15:44:11] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250627-154411 at Fri Jun 27 15:44:11 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+🔧 Checking socket permissions...
+🔄 Pulling latest code...
+error: cannot open '.git/FETCH_HEAD': Permission denied
+📨 Telegram notification sent (failure)
+❌ Deployment failed with exit code 1
+[2025-06-27 22:01:34] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250627-220134 at Fri Jun 27 22:01:34 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+🔧 Checking socket permissions...
+🔄 Pulling latest code...
+From https://github.com/57nyambu/Production_test
+ * branch            main       -> FETCH_HEAD
+HEAD is now at 39475b9 Automation-fix
+📦 Installing dependencies...
+Requirement already satisfied: anyio==4.6.2.post1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (4.6.2.post1)
+Requirement already satisfied: asgiref==3.8.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (3.8.1)
+Requirement already satisfied: attrs==24.3.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (24.3.0)
+Requirement already satisfied: certifi==2024.8.30 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (2024.8.30)
+Requirement already satisfied: cffi==1.17.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (1.17.1)
+Requirement already satisfied: charset-normalizer==3.4.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (3.4.0)
+Requirement already satisfied: cryptography==44.0.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (44.0.2)
+Requirement already satisfied: dj-database-url==2.3.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (2.3.0)
+Requirement already satisfied: dj-rest-auth==7.0.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (7.0.1)
+Requirement already satisfied: Django==5.1.3 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (5.1.3)
+Requirement already satisfied: django-allauth==65.7.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 11)) (65.7.0)
+Requirement already satisfied: django-cors-headers==4.6.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 12)) (4.6.0)
+Requirement already satisfied: django-dotenv==1.4.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 13)) (1.4.2)
+Requirement already satisfied: django-environ==0.11.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 14)) (0.11.2)
+Requirement already satisfied: django-ipware==7.0.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 15)) (7.0.1)
+Requirement already satisfied: djangorestframework==3.15.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 16)) (3.15.2)
+Requirement already satisfied: djangorestframework-simplejwt==5.3.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 17)) (5.3.1)
+Requirement already satisfied: drf-spectacular==0.28.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 18)) (0.28.0)
+Requirement already satisfied: et_xmlfile==2.0.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 19)) (2.0.0)
+Requirement already satisfied: gunicorn==23.0.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 20)) (23.0.0)
+Requirement already satisfied: h11==0.14.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 21)) (0.14.0)
+Requirement already satisfied: httpcore==1.0.7 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 22)) (1.0.7)
+Requirement already satisfied: httpx==0.28.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 23)) (0.28.0)
+Requirement already satisfied: idna==3.10 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 24)) (3.10)
+Requirement already satisfied: inflection==0.5.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 25)) (0.5.1)
+Requirement already satisfied: jsonschema==4.23.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 26)) (4.23.0)
+Requirement already satisfied: jsonschema-specifications==2024.10.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 27)) (2024.10.1)
+Requirement already satisfied: openpyxl==3.1.5 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 28)) (3.1.5)
+Requirement already satisfied: packaging==24.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 29)) (24.2)
+Requirement already satisfied: psycopg2==2.9.10 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 30)) (2.9.10)
+Requirement already satisfied: psycopg2-binary==2.9.10 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 31)) (2.9.10)
+Requirement already satisfied: pycparser==2.22 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 32)) (2.22)
+Requirement already satisfied: PyJWT==2.10.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 33)) (2.10.1)
+Requirement already satisfied: python-decouple==3.8 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 34)) (3.8)
+Requirement already satisfied: python-ipware==3.0.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 35)) (3.0.0)
+Requirement already satisfied: pytz==2024.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 36)) (2024.2)
+Requirement already satisfied: PyYAML==6.0.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 37)) (6.0.2)
+Requirement already satisfied: referencing==0.35.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 38)) (0.35.1)
+Requirement already satisfied: requests==2.32.3 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 39)) (2.32.3)
+Requirement already satisfied: resend==2.4.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 40)) (2.4.0)
+Requirement already satisfied: rpds-py==0.22.3 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 41)) (0.22.3)
+Requirement already satisfied: secure-smtplib==0.1.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 42)) (0.1.1)
+Requirement already satisfied: sniffio==1.3.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 43)) (1.3.1)
+Requirement already satisfied: sqlparse==0.5.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 44)) (0.5.2)
+Requirement already satisfied: typing_extensions==4.12.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 45)) (4.12.2)
+Requirement already satisfied: tzdata==2024.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 46)) (2024.2)
+Requirement already satisfied: uritemplate==4.1.1 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 47)) (4.1.1)
+Requirement already satisfied: urllib3==2.2.3 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 48)) (2.2.3)
+Requirement already satisfied: whitenoise==6.9.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 49)) (6.9.0)
+🔄 Running migrations...
+Operations to perform:
+  Apply all migrations: accounts, admin, auth, communications, contenttypes, customer, financials, marketing, revenue, sessions, subscriptions, token_blacklist
+Running migrations:
+  No migrations to apply.
+📦 Collecting static files...
+
+0 static files copied to '/home/prod/finarch-backend/staticfiles', 164 unmodified.
+♻️ Restarting Gunicorn service...
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
+📨 Telegram notification sent (failure)
+❌ Deployment failed with exit code 1
+[2025-06-28 11:12:53] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250628-111253 at Sat Jun 28 11:12:53 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+📨 Telegram notification sent (warning)
+chmod: changing permissions of '/home/prod/finarch-backend/.env': Operation not permitted
+❌ Deployment failed with exit code 1
+[2025-06-28 12:57:32] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250628-125732 at Sat Jun 28 12:57:32 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+📨 Telegram notification sent (warning)
+chmod: changing permissions of '/home/prod/finarch-backend/.env': Operation not permitted
+❌ Deployment failed with exit code 1
+[2025-06-28 13:01:01] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250628-130101 at Sat Jun 28 13:01:01 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+📨 Telegram notification sent (warning)
+🔧 Checking socket permissions...
+📨 Telegram notification sent (warning)
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
+📨 Telegram notification sent (failure)
+❌ Deployment failed with exit code 1
+[2025-06-28 13:05:05] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250628-130505 at Sat Jun 28 13:05:05 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+🔧 Checking socket permissions...
+📨 Telegram notification sent (warning)
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
+📨 Telegram notification sent (failure)
+❌ Deployment failed with exit code 1
+[2025-06-28 13:18:25] ✅ Manual test deploy triggered from web UI
+🔷 Starting FinArchitect deployment 20250628-131825 at Sat Jun 28 13:18:25 UTC 2025
+🔷 Running as user: tom
+🔐 Loading .env secrets...
+🔧 Checking socket permissions...
+📨 Telegram notification sent (warning)
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
+📨 Telegram notification sent (failure)
+❌ Deployment failed with exit code 1

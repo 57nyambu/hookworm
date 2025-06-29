@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6">Deploy Script Editor</h1>
+    
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div id="alert" class="hidden"></div>
+        
+        <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Script Content:</label>
+            <textarea id="scriptContent" class="w-full h-96 font-mono p-4 border rounded-lg"></textarea>
+        </div>
+        
+        <div class="flex space-x-4">
+            <button onclick="loadScript()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Load Script
+            </button>
+            <button onclick="saveScript()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                Save Changes
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const API_URL = '/admin/deploy-script';
+const ADMIN_TOKEN = '{{ admin_token }}';  // Pass this from your route
+
+async function loadScript() {
+    try {
+        const response = await fetch(API_URL, {
+            headers: { 'X-Admin-Auth': ADMIN_TOKEN }
+        });
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            document.getElementById('scriptContent').value = data.content;
+            showAlert('Script loaded successfully', 'success');
+        } else {
+            throw new Error(data.message || 'Failed to load script');
+        }
+    } catch (error) {
+        showAlert(`Error: ${error.message}`, 'error');
+    }
+}
+
+async function saveScript() {
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Admin-Auth': ADMIN_TOKEN
+            },
+            body: JSON.stringify({
+                content: document.getElementById('scriptContent').value
+            })
+        });
+        
+        const data = await response.json();
+        if (data.status === 'success') {
+            showAlert('Script saved successfully', 'success');
+        } else {
+            throw new Error(data.message || 'Failed to save script');
+        }
+    } catch (error) {
+        showAlert(`Error: ${error.message}`, 'error');
+    }
+}
+
+function showAlert(message, type) {
+    const alert = document.getElementById('alert');
+    alert.textContent = message;
+    alert.className = `p-4 mb-4 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+    alert.classList.remove('hidden');
+    setTimeout(() => alert.classList.add('hidden'), 5000);
+}
+
+// Load script on page load
+document.addEventListener('DOMContentLoaded', loadScript);
+</script>
+{% endblock %}
